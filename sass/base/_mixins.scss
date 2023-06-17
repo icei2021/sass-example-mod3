@@ -1,0 +1,36 @@
+@use 'variables' as v;
+
+@mixin grid($columnas, $separacion:0){
+    display: grid;
+    grid-template-columns: repeat($columnas, 1fr);
+    gap:$separacion ;
+}
+
+@mixin titulo($tamanio, $alineacion, $color, $separacion){
+    font-size: $tamanio;
+    text-align: $alineacion;
+    margin-bottom: $separacion;
+    color: $color;
+    font-family: v.$fuente-primaria;
+}
+
+@mixin texto($color, $interlineado: 1.6, $alineacion:left){
+    font-family: v.$fuente-secundaria;
+    color: $color;
+    line-height: $interlineado;
+    text-align: $alineacion;
+}
+
+/*Responsive*/
+
+@mixin desktop{
+    @media (min-width:v.$desktop){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media (min-width:v.$tablet){
+        @content;
+    }
+}

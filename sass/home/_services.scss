@@ -1,0 +1,44 @@
+//LLamar a variables
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.servicios{
+    .subtitulo{
+        @include m.titulo(2rem, center, v.$color-primario, 2rem);
+        text-transform: uppercase;
+    }
+}
+.servicio-contenedor{
+    @include m.grid(1,2rem);
+
+    @include m.tablet{
+        @include m.grid(2,2rem);
+    }
+    @include m.desktop{
+        @include m.grid(4,2.5rem);
+    }
+    .servicio{
+      
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include m.tablet{
+            align-items: flex-start;
+        }
+        &-icono{
+            color: v.$color-primario;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: color .5s ease-in;
+            &:hover{
+                color:v.$color-oscuro;
+            }
+        }
+        &-titulo{
+            @include m.titulo(1.5rem, center, v.$color-oscuro, 1rem);
+        }
+        &-texto{
+             @include m.texto(v.$color-oscuro,2,justify);
+        }
+    }
+}
